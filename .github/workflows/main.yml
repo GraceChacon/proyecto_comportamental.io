@@ -1,21 +1,26 @@
-name: Trend Vision One Artifact Scan
+name: TMAS Scan
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
-  scan:
-    runs-on: ubuntu-latest
+  tmas-scan:
+    name: TMAS Repo Scan
+    runs-on: ubuntu-22.04
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Scan artifact with Trend Micro
-        uses: trendmicro/tmas-scan-action@v1
         with:
-          api-key: ${{ secrets.TMAS_API_KEY }}
-          region: ${{ secrets.TMAS_REGION }}
-          scan-type: filesystem
-          path: .
+          path: repo-name
+
+      - name: Download TMAS and Scan Repo for Open Source Vulnerabilities and Secrets
+        uses: trendmicro/tmas-scan-action@vX
+        with:
+          version: '2' # Recommended: pin to major version for automatic updates within v2.x.x
+          vulnerabilitiesScan: true
+          malwareScan: false
+          secretsScan: true
+          artifact: dir:./repo-name
+          additionalArgs: --region=eu-central-1
+          tmasApiKey: ${{ secrets.TMAS_API_KEY }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
