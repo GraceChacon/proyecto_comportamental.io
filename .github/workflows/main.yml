@@ -22,5 +22,5 @@ jobs:
           secretsScan: true
           artifact: dir:./repo-name
           additionalArgs: --region=eu-central-1
-          tmasApiKey: ${{ secrets.TMAS_API_KEY }}
+          tmasApiKey: ${{ secrets.eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJjaWQiOiIyYzZmNmU1ZC1lMmVhLTQ1MmQtOGVkNC0wZWE5MzRlMjQyMzciLCJjcGlkIjoic3ZwIiwicHBpZCI6ImN1cyIsIml0IjoxNzcwMzUyMzMxLCJldCI6MTc3ODEyODMzMSwiaWQiOiIzNzVlMzFhYi1jYzc3LTQ5NzItOGJmNi1jMDQxZTY4NjFiZTkiLCJ0b2tlblVzZSI6ImN1c3RvbWVyIn0.jbMAUptamHbbEUvPpEWJpfIVqQZXQ__djHKTQL9iFCFn0Bt9Tu1jehV8dpibPyrfHStvfm_fRKN12Zk5PiUGJT74NZkZ-OLQjudtvE1B0uSeJJ0F6eFdNGVYGSfmcgNFbP1p_63TDSyGqbK0N7xtKOgrxNG9mI4GG5jKVqYWw9Cl9P5bn78U5rim_3jyQT1KNqerbJavlVBk7iLUShCdukqHSCBwa2Zk_zNiIHBKrHjkfDuUY9Y0VQ4FMyAcLlQVSAsMo6Gmc7O3Ckfud-j-tuHiODIX9O38fBhyZPCROTpDhxfFgw9EZLNfE8RTVrNBwy8g4B003WOtDuKFjbiwuI70VGGySdRTa4JNVIlXYgakI-qedbAyLVbcUT1PcsqPABVJgBAYvn3lQo0pk0ZPHCchNobSecDPrEOUmg_eSAnEhpB4bewesrJKXuOGWbmyNKJPNF5KHwFggNslLANryMvPx8bzZL-5RiofktvEFZz_ICvfplccY6xxcLXp84G1_QkEqFa1gpZlkNDQJQZQDVsmgiqjymXb5Y8FcqtxEwhqqG65RPGfZS3hpLXwHmOTMDdufMM9QbyztmnnATmSOsdoNPhtuqF7NqNwwHWJPUg4U1v0pnr0st5_72ryhH88A26oxqVL7rjGspW7RnwbSalSaMWVF5vteEn4t3Pw-IY }}
           githubToken: ${{ secrets.GITHUB_TOKEN }}
