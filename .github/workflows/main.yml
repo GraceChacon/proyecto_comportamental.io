@@ -1,0 +1,21 @@
+name: Trend Vision One Artifact Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Scan artifact with Trend Micro
+        uses: trendmicro/tmas-scan-action@v1
+        with:
+          api-key: ${{ secrets.TMAS_API_KEY }}
+          region: ${{ secrets.TMAS_REGION }}
+          scan-type: filesystem
+          path: .
