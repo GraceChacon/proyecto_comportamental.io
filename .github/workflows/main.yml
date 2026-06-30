@@ -1,26 +1,8 @@
 name: TMAS Scan
 
 on:
-  push:
+  pull_request:
 
-jobs:
-  tmas-scan:
-    name: TMAS Repo Scan
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          path: repo-name
-
-      - name: Download TMAS and Scan Repo for Open Source Vulnerabilities and Secrets
-        uses: trendmicro/tmas-scan-action@v2
-        with:
-          version: '2' # Recommended: pin to major version for automatic updates within v2.x.x
-          vulnerabilitiesScan: true
-          malwareScan: false # Malware scanning is only available for container images at this time
-          secretsScan: true
-          artifact: dir:./repo-name
-          additionalArgs: --region=us-east-1
-          tmasApiKey: ${{ secrets.eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6ImQ4NDUyZDM2LTcwNDAtNDYxZS04OTdlLTRjMDg2NWUxMTQwZiJ9.eyJjaWQiOiIyYzZmNmU1ZC1lMmVhLTQ1MmQtOGVkNC0wZWE5MzRlMjQyMzciLCJjcGlkIjoic3ZwIiwicHBpZCI6ImN1cyIsIml0IjoxNzgyODU5OTQyLCJldCI6MjI1NTg5OTk0MSwiaWQiOiI5NDhjMDA2NC02ODg3LTQ5ZDgtOTc3Yy0zYTY2ZGQyZDI3ZGYiLCJ0b2tlblVzZSI6ImN1c3RvbWVyIn0.lwFKv4pZSUJ-bUxm9q9dUcRZ2ca5n1kccVSn0Wwj4mNb96ZpzCjc_ZuzQEafK6r6_IIXKUU0sbqWvLsB665NnGgZMEnsql7n8zgNa8nl1vvRTlPR95XTh5QHR7PZybL2JvtqR5OLAcnFYwMCdtb-Oc2ZGE9yWkGvUNV8vYid_yNK-yXTodsVYwmXeS3ObUncFWaJt9JBR3joJfOJSB1qUHYYALATjTE8zovDIdD5WU31J1o3fipOTY_i2bf_1HfNx6xQLJX7fQlLCGXgevtasf7ImSUN5xo56shX0IaIY7RXENF4gj_4o8tXUok_FXbsWEJCUQkvaCfqcRyAVcgzjVJg6n6aByx9lEtbWXhq926JGDMf1MpS16V9ygRepj_HYdSkgUzk6yYE5ryM2RXKRy-rpunZx1qfQju-tanV_bycMi4xkSe4CEvel24rBMt0rRwjNEA8zEn6ecslkj1vjXN_Fv4m5H2xBOCjComRj7MDiTKHk17CaEmbSxUmvJ87NUJu25XIrDW-ebZD0i03F_a8NpESA-wCJB7ANmD9G-Oa99kaqzJICt_dFPlUXKsVIugVQD0fCV_0CI6ob_Ux6unLacj656RWf5QqnL2fBmeUxti747Z3qRrHgV3JJPEPDAf06z3ficvCUGu_of1LKH89QAFN-Z0xM188GIoukpM }}
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+permissions:
+  contents: read
+  pull-requests: write
